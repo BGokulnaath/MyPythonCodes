@@ -1,0 +1,12 @@
+MyList=[]
+MyPositiveList=[]
+n=int(input("Enter the number of elements you want in your list : "))
+print("Enter the elements you want in your list : ")
+for i in range(0,n):
+    element=int(input())
+    MyList.append(element)
+print("The positive numbers in the list are as follows : ")
+for positive_number in MyList:
+    if(positive_number>0):
+        MyPositiveList.append(positive_number)
+print(MyPositiveList)
