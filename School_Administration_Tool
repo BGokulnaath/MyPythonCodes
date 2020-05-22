@@ -1,0 +1,30 @@
+import csv
+def write_into_csv(info_list):
+    with open('student_info.csv', 'a', newline='') as csv_file:
+        pen=csv.writer(csv_file)
+        if(csv_file.tell()==0):
+            pen.writerow(['Name','Age','PhoneNumber','E-Mail_ID'])
+        pen.writerow(info_list)
+        
+condition=True
+student_no=1
+while(condition):
+    print("Enter the information of student {} in the following format : Name Age Phone_Number E-Mail_ID".format(student_no))
+    student_info=input()
+    student_info_list=student_info.split(' ')
+    print("\nStudent Information\nName: {}\nAge: {}\nPhoneNumber: {}\nE-Mail_ID: {}\n".format(student_info_list[0],student_info_list[1],student_info_list[2],student_info_list[3]))
+    print("Did you enter the correct information:Yes/No")
+    check2=input()
+    if(check2=="Yes"):
+        write_into_csv(student_info_list)
+        print("Do you want to enter information of more students:Yes/No")
+        check=input()
+        if(check=="Yes"):
+            student_no=student_no+1
+            continue
+        elif(check=="No"):
+            student_no=1
+            condition=False
+            continue
+    elif(check2=="No"):
+        print("Please enter the correct information")
